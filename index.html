@@ -4,315 +4,291 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#071C33">
-<title>Platinum Go — Motor Cover</title>
+<title>Platinum Go — Motor cover in 90 seconds</title>
+
+<!-- Social / WhatsApp share card -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Platinum Go — Motor cover in 90 seconds">
+<meta property="og:description" content="Instant motor insurance from Platinum Insurers Liberia. Quote, pay by Mobile Money, and get your certificate — in 90 seconds.">
+<meta property="og:image" content="https://hnsaad1973-tech.github.io/platinum-go/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Platinum Go — Motor cover in 90 seconds">
+<meta name="twitter:description" content="Instant motor insurance from Platinum Insurers Liberia.">
+<meta name="twitter:image" content="https://hnsaad1973-tech.github.io/platinum-go/og-banner.png">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
   :root{
-    --ink:#0B2A4A; --ink-deep:#071C33; --gold:#C9A24B; --gold-dim:#B8912F;
-    --green:#1E7D3A; --paper:#F4F6F9; --line:#D7DEE6; --muted:#5C6B7A; --danger:#B23B2E;
+    --navy:#0B2A4A; --navy2:#071C33; --ink:#050F1D;
+    --steel:#3E5C82; --steel-lite:#9FB2C6;
+    --gold:#C9A24B; --gold-lite:#E4C877; --gold-dim:#A9843A;
+    --cream:#EDEAE2; --mute:#7E90A6; --green:#3FB27A; --line:rgba(159,178,198,.16);
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:var(--paper); color:var(--ink); line-height:1.5;
-    -webkit-font-smoothing:antialiased;
+    font-family:Inter,-apple-system,system-ui,sans-serif;
+    color:var(--cream);
+    background:
+      radial-gradient(120% 80% at 15% 0%, rgba(201,162,75,.10), transparent 42%),
+      radial-gradient(100% 70% at 100% 100%, rgba(62,92,130,.22), transparent 55%),
+      linear-gradient(180deg,var(--navy) 0%, var(--navy2) 55%, var(--ink) 100%);
+    background-attachment:fixed;
+    min-height:100vh; -webkit-font-smoothing:antialiased; line-height:1.55;
   }
-  .app{max-width:460px;margin:0 auto;min-height:100vh;background:var(--paper);position:relative}
-  .demo{
-    background:repeating-linear-gradient(45deg,#2a2113,#2a2113 12px,#332816 12px,#332816 24px);
-    color:var(--gold);font-size:11px;letter-spacing:.18em;font-weight:800;text-transform:uppercase;
-    text-align:center;padding:7px 12px;border-bottom:1px solid #4a3c1e;
-  }
-  header{
-    background:linear-gradient(160deg,var(--ink) 0%,var(--ink-deep) 100%);
-    color:#fff;padding:22px 22px 26px;
-  }
-  .brandrow{display:flex;align-items:center;gap:12px}
-  .seal{
-    width:40px;height:40px;border-radius:50%;flex:none;
-    background:radial-gradient(circle at 32% 30%,#e7cd86,var(--gold) 55%,var(--gold-dim));
-    display:grid;place-items:center;color:var(--ink-deep);font-weight:900;font-size:17px;
-    box-shadow:0 0 0 3px rgba(201,162,75,.25);
-  }
-  .brand b{display:block;font-size:17px;font-weight:800;letter-spacing:.02em}
-  .brand span{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#9fb2c6;margin-top:1px}
-  .tagline{margin:16px 0 0;font-size:22px;font-weight:800;line-height:1.25}
-  .tagline .g{color:var(--gold)}
-  .subline{margin:6px 0 0;font-size:13px;color:#b8c6d6}
-  main{padding:20px 18px 32px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;
-    box-shadow:0 1px 0 rgba(11,42,74,.02)}
-  .step{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dim);font-weight:800;margin:0 0 10px}
-  h2{margin:0 0 4px;font-size:19px;font-weight:800}
-  .lead{margin:0 0 14px;color:var(--muted);font-size:14px}
-  label{display:block;font-size:12px;color:var(--muted);font-weight:600;margin:12px 0 5px}
-  input,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:11px;font-size:16px;
-    background:#fff;color:var(--ink);appearance:none}
-  input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
-  select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%235C6B7A' fill='none' stroke-width='2'/></svg>");
-    background-repeat:no-repeat;background-position:right 14px center}
-  .hint{font-size:11px;color:var(--muted);margin-top:5px}
-  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border:none;
-    border-radius:13px;font-size:16px;font-weight:800;cursor:pointer;margin-top:16px;transition:transform .06s}
+  .serif{font-family:Fraunces,Georgia,serif}
+  .wrap{max-width:540px;margin:0 auto;padding:22px 24px 40px;min-height:100vh;display:flex;flex-direction:column}
+  .topbar{display:flex;align-items:center;justify-content:space-between}
+  .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .chip{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--steel-lite);
+    border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+
+  /* ---- HERO ---- */
+  .hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 0 8px}
+  .emblem{width:132px;height:132px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));margin-bottom:8px;
+    animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .word{font-size:52px;font-weight:600;letter-spacing:-.01em;margin:2px 0 0;animation:rise .9s .06s cubic-bezier(.2,.7,.2,1) both}
+  .word .dot{color:var(--gold)}
+  .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--steel-lite);margin-top:8px;animation:rise .9s .1s both}
+  .promise{font-size:26px;line-height:1.3;margin:22px 0 0;font-weight:500;animation:rise .9s .16s both}
+  .promise .g{color:var(--gold-lite)}
+  .sub{color:var(--steel-lite);font-size:15px;margin:12px 0 0;max-width:360px;animation:rise .9s .22s both}
+
+  .cta{margin-top:30px;animation:rise .9s .3s both;width:100%;max-width:330px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:17px 22px;border:none;border-radius:14px;font-family:Inter;font-size:16px;font-weight:700;
+    letter-spacing:.02em;cursor:pointer;color:var(--ink);
+    background:linear-gradient(180deg,var(--gold-lite),var(--gold));
+    box-shadow:0 12px 30px rgba(201,162,75,.28), inset 0 1px 0 rgba(255,255,255,.4);
+    position:relative;overflow:hidden;transition:transform .08s}
   .btn:active{transform:translateY(1px)}
-  .btn:disabled{opacity:.55}
-  .btn-gold{background:linear-gradient(180deg,#d8b45f,var(--gold));color:var(--ink-deep)}
-  .btn-navy{background:var(--ink);color:#fff}
-  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
-  .btn-wa{background:#25D366;color:#fff}
-  .btn-row{display:flex;gap:10px}
-  .btn-row .btn{margin-top:0}
-  .quote-amt{text-align:center;padding:8px 0 4px}
-  .quote-amt .n{font-size:40px;font-weight:900;letter-spacing:-.02em}
-  .quote-amt .c{font-size:15px;color:var(--muted);font-weight:700}
-  .quote-amt .p{font-size:12px;color:var(--muted);margin-top:2px}
-  .kv{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
-  .kv:first-of-type{border-top:none}
-  .kv .k{color:var(--muted)} .kv .v{font-weight:700}
-  .wait{text-align:center;padding:22px 6px}
-  .ring{width:56px;height:56px;margin:4px auto 14px;border:4px solid #e6ecf2;border-top-color:var(--gold);
-    border-radius:50%;animation:spin 1s linear infinite}
+  .btn .sheen{position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+    transform:skewX(-18deg);animation:sheen 3.2s ease-in-out infinite}
+  @keyframes sheen{0%,55%{left:-60%}80%,100%{left:140%}}
+  .btn-ghost{background:none;border:1px solid var(--line);color:var(--cream);box-shadow:none;font-weight:600}
+  .btn-ghost .sheen{display:none}
+
+  .proof{display:flex;gap:8px;margin-top:26px;width:100%;animation:rise .9s .38s both}
+  .proof .p{flex:1;border:1px solid var(--line);border-radius:12px;padding:13px 8px;text-align:center;
+    background:rgba(255,255,255,.02)}
+  .proof .p .i{color:var(--gold);margin-bottom:6px}
+  .proof .p .t{font-size:11px;color:var(--cream);font-weight:600;letter-spacing:.02em;line-height:1.35}
+
+  .foot{text-align:center;color:var(--mute);font-size:11px;margin-top:26px;letter-spacing:.02em}
+  .foot b{color:var(--steel-lite);font-weight:600}
+
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  /* ---- LIVE DEMO ---- */
+  .stage{flex:1;display:none;flex-direction:column;justify-content:center}
+  .stage.on{display:flex}
+  .panel{border:1px solid var(--line);border-radius:20px;padding:24px 22px;
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+    backdrop-filter:blur(2px)}
+  .panel .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);text-align:center}
+  .panel h2{font-family:Fraunces;font-weight:600;font-size:24px;text-align:center;margin:8px 0 22px}
+  .steps{display:flex;flex-direction:column;gap:2px}
+  .stp{display:flex;align-items:center;gap:14px;padding:12px 4px;opacity:.35;transition:opacity .4s}
+  .stp.on{opacity:1}
+  .stp .mk{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;transition:.3s}
+  .stp.done .mk{background:var(--green);border-color:var(--green)}
+  .stp.run .mk{border-color:var(--gold);border-top-color:transparent;animation:spin .8s linear infinite}
+  .stp .tx{font-size:15px;font-weight:500}
+  .stp .tx small{display:block;color:var(--steel-lite);font-size:12px;font-weight:400;margin-top:1px}
+  .stp .amt{margin-left:auto;font-family:Fraunces;font-weight:600;color:var(--gold-lite);font-size:16px;white-space:nowrap}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .log{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;color:var(--muted);
-    background:#f1f4f8;border-radius:10px;padding:10px;margin-top:12px;text-align:left;white-space:pre-wrap;max-height:120px;overflow:auto}
-  .err{color:var(--danger);font-weight:600;font-size:13px;margin-top:10px}
-  .cert{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;position:relative}
-  .cert-wm{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:2}
-  .cert-wm span{font-size:46px;font-weight:900;letter-spacing:.2em;color:rgba(201,162,75,.14);transform:rotate(-24deg)}
-  .cert-hd{background:linear-gradient(160deg,var(--ink),var(--ink-deep));color:#fff;padding:16px 18px;
-    display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
-  .cert-hd .b{font-size:15px;font-weight:800;letter-spacing:.02em}
-  .cert-hd .s{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9fb2c6}
-  .badge{background:var(--green);color:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;padding:5px 9px;border-radius:6px}
-  .cert-body{padding:16px 18px;position:relative;z-index:1}
-  .cert-body h3{margin:0 0 10px;font-size:14px;color:var(--ink)}
-  .cert-body .kv{font-size:13px}
-  .cert-ft{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-top:1px solid var(--line);position:relative;z-index:1}
-  .cert-ft .note{font-size:10px;color:var(--muted);max-width:60%}
-  #qr{display:grid;place-items:center}
+
+  /* ---- CERTIFICATE ---- */
+  .certwrap{display:none}
+  .certwrap.on{display:block;animation:rise .7s both}
+  .cert{border-radius:18px;overflow:hidden;position:relative;background:#fff;color:#0B2A4A;
+    box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .cert .wm{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+  .cert .wm span{font-family:Fraunces;font-size:66px;font-weight:700;color:rgba(201,162,75,.10);transform:rotate(-24deg);letter-spacing:.1em}
+  .cert .ch{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;padding:18px 20px;display:flex;align-items:center;gap:13px;position:relative;z-index:1}
+  .cert .ch img{width:44px;height:44px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.4))}
+  .cert .ch .b{font-family:Fraunces;font-size:17px;font-weight:600;line-height:1.1}
+  .cert .ch .s{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-lite)}
+  .cert .ch .seal{margin-left:auto;text-align:center}
+  .cert .ch .seal .r{font-size:9px;letter-spacing:.18em;color:var(--gold-lite)}
+  .cert .cb{padding:18px 20px;position:relative;z-index:1}
+  .cert .cb .kind{font-family:Fraunces;font-weight:600;font-size:16px;margin:0 0 12px}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid #eef1f5;font-size:13.5px}
+  .row:first-of-type{border-top:none}
+  .row .k{color:#6b7a8d} .row .v{font-weight:700;text-align:right}
+  .cert .cf{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;border-top:1px solid #eef1f5;position:relative;z-index:1}
+  .cert .cf .note{font-size:10.5px;color:#7a8698;max-width:58%}
   #qr img,#qr canvas{border-radius:6px}
-  .cert-legal{font-size:9.5px;color:#9aa7b5;padding:0 18px 14px;position:relative;z-index:1}
-  footer{padding:18px;text-align:center;color:var(--muted);font-size:11px}
-  footer .lic{color:var(--gold-dim);font-weight:700}
-  .hidden{display:none}
-  @media print{
-    .demo,.step,.btn,.btn-row,footer,.no-print{display:none!important}
-    body,.app{background:#fff} main{padding:0}
-    .cert{border:none}
-  }
+  .cert .legal{font-size:9px;color:#9aa7b5;padding:0 20px 16px;position:relative;z-index:1}
+  .again{display:flex;gap:10px;margin-top:16px}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
 <body>
-<div class="app">
-  <div class="demo">Demo · Trial version · Not real insurance cover</div>
-  <header>
-    <div class="brandrow">
-      <div class="seal">P</div>
-      <div class="brand"><b>Platinum Go</b><span>Platinum Insurers · Liberia</span></div>
+<div class="wrap">
+  <div class="topbar">
+    <span class="eyebrow">Platinum Insurers · Liberia</span>
+    <span class="chip">Preview</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero" id="hero">
+    <img class="emblem" src="logo.png" alt="Platinum Insurers">
+    <h1 class="word serif">Platinum Go<span class="dot">.</span></h1>
+    <div class="kicker">Motor insurance, reimagined</div>
+    <p class="promise serif">Cover issued in <span class="g">90 seconds.</span></p>
+    <p class="sub">Quote, pay with Mobile Money, and receive a verifiable certificate — without a branch, an agent, or paperwork.</p>
+
+    <div class="cta">
+      <button class="btn" onclick="runDemo()"><span class="sheen"></span>See it work &nbsp;→</button>
     </div>
-    <p class="tagline">Motor cover in <span class="g">90 seconds.</span></p>
-    <p class="subline">Quote, pay with Mobile Money, get your certificate. All on your phone.</p>
-  </header>
-  <main>
-    <section id="scr-start">
-      <div class="card">
-        <p class="step">Motor Third-Party Liability</p>
-        <h2>The cover every vehicle needs</h2>
-        <p class="lead">Third-party liability is the compulsory motor cover under Liberian law. Get insured and receive your certificate instantly.</p>
-        <button class="btn btn-gold" onclick="go('form')">Get cover now →</button>
+
+    <div class="proof">
+      <div class="p"><div class="i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div><div class="t">Licensed<br>insurer</div></div>
+      <div class="p"><div class="i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div><div class="t">MTN Mobile<br>Money</div></div>
+      <div class="p"><div class="i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></div><div class="t">Instant<br>certificate</div></div>
+    </div>
+  </div>
+
+  <!-- LIVE DEMO -->
+  <div class="stage" id="stage">
+    <div class="panel" id="issuing">
+      <div class="lbl">Live · issuing a policy</div>
+      <h2 class="serif" id="issTitle">Watch it happen</h2>
+      <div class="steps">
+        <div class="stp" id="s1"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Calculating quote<small id="s1s">Rating the vehicle…</small></span><span class="amt" id="s1a"></span></div>
+        <div class="stp" id="s2"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Mobile Money payment<small id="s2s">Awaiting confirmation…</small></span><span class="amt" id="s2a"></span></div>
+        <div class="stp" id="s3"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Activating policy<small id="s3s">Assigning policy number…</small></span><span class="amt" id="s3a"></span></div>
+        <div class="stp" id="s4"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Issuing certificate<small id="s4s">Generating document + QR…</small></span><span class="amt" id="s4a"></span></div>
       </div>
-      <div class="card">
-        <div class="kv"><span class="k">1 · Enter your details</span></div>
-        <div class="kv"><span class="k">2 · Pay with MTN Mobile Money</span></div>
-        <div class="kv"><span class="k">3 · Get your certificate + QR</span></div>
-      </div>
-    </section>
-    <section id="scr-form" class="hidden">
-      <div class="card">
-        <p class="step">Step 1 of 3 · Your details</p>
-        <h2>Tell us about you & the vehicle</h2>
-        <label>Vehicle type</label>
-        <select id="vclass">
-          <option value="private">Private car</option>
-          <option value="commercial">Commercial vehicle</option>
-          <option value="motorcycle">Motorcycle</option>
-        </select>
-        <label>Full name</label>
-        <input id="name" placeholder="e.g. James Kollie" value="">
-        <label>Mobile Money number</label>
-        <input id="msisdn" inputmode="numeric" placeholder="077 000 0000" value="">
-        <div class="hint">The MTN number that will pay and receive the certificate.</div>
-        <label>ID number</label>
-        <input id="idnum" placeholder="National ID / passport no." value="">
-        <label>Vehicle registration</label>
-        <input id="vreg" placeholder="e.g. MC-1234" value="">
-        <button class="btn btn-navy" id="quoteBtn" onclick="getQuote()">Get my quote →</button>
-        <div class="err hidden" id="formErr"></div>
-      </div>
-      <button class="btn btn-ghost no-print" onclick="go('start')">← Back</button>
-    </section>
-    <section id="scr-quote" class="hidden">
-      <div class="card">
-        <p class="step">Step 2 of 3 · Your quote</p>
-        <div class="quote-amt">
-          <div class="n" id="qPremium">—</div>
-          <div class="c">Liberian Dollars · 12 months</div>
-          <div class="p">Indicative demo pricing</div>
+      <div id="issErr" style="display:none;color:#F0888C;font-size:13px;text-align:center;margin-top:14px"></div>
+    </div>
+
+    <!-- CERTIFICATE -->
+    <div class="certwrap" id="certwrap">
+      <div class="cert">
+        <div class="wm"><span>PREVIEW</span></div>
+        <div class="ch">
+          <img src="logo.png" alt="">
+          <div><div class="b">Platinum Insurers</div><div class="s">Certificate of Motor Insurance</div></div>
+          <div class="seal"><div style="font-size:20px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E4C877" stroke-width="1.5"><circle cx="12" cy="10" r="6"/><path d="M9 15l-1 6 4-2 4 2-1-6"/></svg></div><div class="r">ISSUED</div></div>
         </div>
-        <div class="kv"><span class="k">Cover</span><span class="v">Third-Party Liability</span></div>
-        <div class="kv"><span class="k">Vehicle</span><span class="v" id="qVehicle">—</span></div>
-        <div class="kv"><span class="k">Policyholder</span><span class="v" id="qName">—</span></div>
-        <button class="btn btn-gold" onclick="pay()">Pay with Mobile Money →</button>
-        <div class="hint" style="text-align:center;margin-top:10px">Demo: no real money is charged.</div>
-      </div>
-      <button class="btn btn-ghost no-print" onclick="go('form')">← Edit details</button>
-    </section>
-    <section id="scr-wait" class="hidden">
-      <div class="card">
-        <div class="wait">
-          <div class="ring"></div>
-          <h2>Approve on your phone</h2>
-          <p class="lead" style="margin:6px 0 0">We've sent a Mobile Money prompt. Enter your PIN to confirm. Your certificate appears here automatically.</p>
+        <div class="cb">
+          <div class="kind">Motor Third-Party Liability</div>
+          <div class="row"><span class="k">Policy number</span><span class="v" id="cNum">—</span></div>
+          <div class="row"><span class="k">Policyholder</span><span class="v" id="cName">—</span></div>
+          <div class="row"><span class="k">Vehicle</span><span class="v" id="cVeh">—</span></div>
+          <div class="row"><span class="k">Premium paid</span><span class="v" id="cPrem">—</span></div>
+          <div class="row"><span class="k">Cover period</span><span class="v" id="cDates">—</span></div>
         </div>
-        <div class="log" id="log"></div>
-        <div class="err hidden" id="waitErr"></div>
-      </div>
-    </section>
-    <section id="scr-cert" class="hidden">
-      <div class="card" style="padding:0;overflow:hidden">
-        <div class="cert" id="certDoc">
-          <div class="cert-wm"><span>DEMO</span></div>
-          <div class="cert-hd">
-            <div><div class="b">PLATINUM INSURERS</div><div class="s">Certificate of Motor Insurance</div></div>
-            <div class="badge">ACTIVE</div>
-          </div>
-          <div class="cert-body">
-            <h3>Motor Third-Party Liability</h3>
-            <div class="kv"><span class="k">Policy number</span><span class="v" id="cNum">—</span></div>
-            <div class="kv"><span class="k">Policyholder</span><span class="v" id="cName">—</span></div>
-            <div class="kv"><span class="k">Vehicle reg.</span><span class="v" id="cReg">—</span></div>
-            <div class="kv"><span class="k">Vehicle type</span><span class="v" id="cClass">—</span></div>
-            <div class="kv"><span class="k">Premium paid</span><span class="v" id="cPrem">—</span></div>
-            <div class="kv"><span class="k">Cover period</span><span class="v" id="cDates">—</span></div>
-          </div>
-          <div class="cert-ft">
-            <div class="note">Scan to verify this certificate at any time.</div>
-            <div id="qr"></div>
-          </div>
-          <div class="cert-legal">Issued subject to policy terms and the Insurance Act of Liberia. No Premium No Cover applies. <b>DEMO — not valid as real cover.</b></div>
+        <div class="cf">
+          <div class="note">Scan to verify this certificate against the live register.</div>
+          <div id="qr"></div>
         </div>
+        <div class="legal">Issued subject to policy terms and the Insurance Act of Liberia. No Premium No Cover applies. <b>Preview — not valid as real cover.</b></div>
       </div>
-      <div class="card no-print">
-        <p class="step">Share your certificate</p>
-        <div class="btn-row">
-          <button class="btn btn-wa" onclick="shareWhatsApp()">WhatsApp</button>
-          <button class="btn btn-navy" onclick="sendSMS()">SMS</button>
-        </div>
-        <button class="btn btn-ghost" onclick="window.print()">Download / Print</button>
-        <button class="btn btn-gold" onclick="go('start')">New cover</button>
+      <div class="again">
+        <button class="btn btn-ghost" onclick="resetDemo()">← Back</button>
+        <button class="btn" onclick="runDemo()"><span class="sheen"></span>Run again</button>
       </div>
-    </section>
-  </main>
-  <footer>
-    Platinum Insurers Liberia Inc. · <span class="lic">Licensed insurer</span><br>
-    Demo build — for demonstration only, not a contract of insurance.
-  </footer>
+    </div>
+  </div>
+
+  <div class="foot">Preview build for demonstration. <b>Platinum Insurers Liberia Inc.</b> — not a contract of insurance.</div>
 </div>
+
 <script>
-const BASE = "https://kfhadcpnqvnqrhzrkaeq.supabase.co/functions/v1/pg";
-const $ = id => document.getElementById(id);
-const screens = ["start","form","quote","wait","cert"];
-let state = {};
-function go(name){
-  screens.forEach(s => $("scr-"+s).classList.toggle("hidden", s!==name));
-  window.scrollTo(0,0);
-}
-function money(n){ return Number(n).toLocaleString("en-US"); }
-function classLabel(v){ return {private:"Private car",commercial:"Commercial",motorcycle:"Motorcycle"}[v]||v; }
-function normMsisdn(raw){
-  let n = String(raw||"").replace(/\D/g,"");
-  if(n.startsWith("231")){} else if(n.startsWith("0")) n="231"+n.slice(1);
-  else if(n.length===8||n.length===9) n="231"+n;
-  return /^231\d{8,9}$/.test(n)?n:null;
-}
-async function getQuote(){
-  const err=$("formErr"); err.classList.add("hidden");
-  const name=$("name").value.trim(), idnum=$("idnum").value.trim(),
-        vreg=$("vreg").value.trim(), vclass=$("vclass").value,
-        msisdn=normMsisdn($("msisdn").value);
-  if(!name) return showErr(err,"Please enter your full name.");
-  if(!msisdn) return showErr(err,"Enter a valid Mobile Money number.");
-  if(!idnum) return showErr(err,"Please enter your ID number.");
-  if(!vreg) return showErr(err,"Please enter the vehicle registration.");
-  $("quoteBtn").disabled=true; $("quoteBtn").textContent="Getting quote…";
+const BASE="https://kfhadcpnqvnqrhzrkaeq.supabase.co/functions/v1/pg";
+const PRICE_DISPLAY="LRD 15,000";
+const $=id=>document.getElementById(id);
+const NAMES=["James Kollie","Musu Kamara","Emmanuel Toe","Fatima Bah","Prince Weah","Grace Johnson","Amara Dukuly","Joseph Nyema"];
+const VEH=[["Toyota Corolla","MC"],["Nissan Patrol","BG"],["Honda CR-V","CH"],["Toyota Hilux","LR"],["Kia Sportage","MV"]];
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function money(n){return Number(n).toLocaleString("en-US")}
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+
+function setStep(id,st,sub){const e=$(id);e.classList.remove("run","done");e.classList.add("on");if(st)e.classList.add(st);if(sub!==undefined)$(id+"s").textContent=sub}
+
+async function runDemo(){
+  $("hero").style.display="none";
+  $("stage").classList.add("on");
+  $("certwrap").classList.remove("on");
+  $("issuing").style.display="block";
+  $("issErr").style.display="none";
+  ["s1","s2","s3","s4"].forEach(s=>{$(s).classList.remove("on","run","done");$(s+"a").textContent=""});
+  $("issTitle").textContent="Watch it happen";
+
+  const name=rnd(NAMES), v=rnd(VEH), reg=v[1]+"-"+(1000+Math.floor(Math.random()*8999));
+  const demo={name,veh:v[0],reg};
+
   try{
-    const r = await fetch(BASE+"/initiate",{method:"POST",headers:{},
-      body:JSON.stringify({product_code:"MOTOR_TPL",vehicle_class:vclass,
-        vehicle_reg:vreg,full_name:name,msisdn,id_number:idnum})});
-    const j = await r.json();
-    if(j.error){ showErr(err,humanErr(j.error)); return; }
-    state={name,vreg,vclass,msisdn,idnum,premium:j.premium,ref:j.ref};
-    $("qPremium").textContent=money(j.premium);
-    $("qVehicle").textContent=classLabel(vclass)+" · "+vreg;
-    $("qName").textContent=name;
-    go("quote");
-  }catch(e){ showErr(err,"Network problem. Check your connection and try again."); }
-  finally{ $("quoteBtn").disabled=false; $("quoteBtn").textContent="Get my quote →"; }
+    // 1) quote + initiate (real)
+    setStep("s1","run","Rating the vehicle…"); await wait(650);
+    const r=await fetch(BASE+"/initiate",{method:"POST",headers:{},
+      body:JSON.stringify({product_code:"MOTOR_TPL",vehicle_class:"private",
+        vehicle_reg:reg,full_name:name,msisdn:"231770000000",id_number:"LR-"+Math.floor(100000+Math.random()*899999)})});
+    const j=await r.json();
+    if(j.error) throw new Error(j.error);
+    demo.premium=j.premium; demo.ref=j.ref;
+    $("s1a").textContent=PRICE_DISPLAY;
+    setStep("s1","done","Premium calculated");
+
+    // 2) payment
+    setStep("s2","run","Confirming on Mobile Money…"); await wait(900);
+
+    // 3) poll status -> issue
+    setStep("s3","run","Verifying payment & activating…");
+    let done=null,tries=0;
+    while(tries<20){
+      tries++;
+      const s=await fetch(BASE+"/status?ref="+demo.ref).then(x=>x.json());
+      if(s.status==="successful"){done=s;break}
+      if(s.status==="FAILED"){throw new Error("payment failed")}
+      await wait(1500);
+    }
+    if(!done) throw new Error("timed out");
+    $("s2a").innerHTML="✓"; setStep("s2","done","Payment confirmed");
+    demo.policy=done.policy_number; demo.cert=done.cert_url;
+    $("s3a").textContent=done.policy_number.split("/").pop();
+    setStep("s3","done","Policy active");
+
+    // 4) certificate
+    setStep("s4","run","Generating certificate…"); await wait(700);
+    setStep("s4","done","Certificate ready");
+    await wait(450);
+    showCert(demo);
+  }catch(e){
+    $("issErr").style.display="block";
+    $("issErr").textContent="Live service hiccup — tap Run again.";
+  }
 }
-function pay(){
-  go("wait");
-  const log=$("log"); log.textContent="Sending Mobile Money request…";
-  const err=$("waitErr"); err.classList.add("hidden");
-  let tries=0;
-  const poll=setInterval(async ()=>{
-    tries++;
-    try{
-      const s=await fetch(BASE+"/status?ref="+state.ref).then(x=>x.json());
-      log.textContent+="\nChecking payment ("+tries+")… "+(s.status||s.error||"pending");
-      if(s.status==="successful"){
-        clearInterval(poll);
-        state.policy_number=s.policy_number; state.cert_url=s.cert_url;
-        renderCert(); go("cert");
-      }else if(s.status==="FAILED"||s.error){
-        clearInterval(poll); showErr(err,"Payment was not completed. Please try again.");
-      }else if(tries>=22){
-        clearInterval(poll); showErr(err,"Timed out waiting for payment. Please try again.");
-      }
-    }catch(e){}
-  },4000);
-}
-function renderCert(){
-  const start=new Date(), end=new Date(); end.setFullYear(end.getFullYear()+1);
-  const fmt=d=>d.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"});
-  state.startS=fmt(start); state.endS=fmt(end);
-  $("cNum").textContent=state.policy_number;
-  $("cName").textContent=state.name;
-  $("cReg").textContent=state.vreg;
-  $("cClass").textContent=classLabel(state.vclass);
-  $("cPrem").textContent="LRD "+money(state.premium);
-  $("cDates").textContent=state.startS+" – "+state.endS;
+
+function showCert(d){
+  const start=new Date(),end=new Date();end.setFullYear(end.getFullYear()+1);
+  const fmt=x=>x.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"});
+  $("cNum").textContent=d.policy;
+  $("cName").textContent=d.name;
+  $("cVeh").textContent=d.veh+" · "+d.reg;
+  $("cPrem").textContent=PRICE_DISPLAY;
+  $("cDates").textContent=fmt(start)+" – "+fmt(end);
   $("qr").innerHTML="";
-  try{ new QRCode($("qr"),{text:state.cert_url||state.policy_number,width:74,height:74,
-    colorDark:"#0B2A4A",colorLight:"#ffffff"}); }catch(e){}
+  try{new QRCode($("qr"),{text:d.cert||d.policy,width:66,height:66,colorDark:"#0B2A4A",colorLight:"#ffffff"})}catch(e){}
+  $("issuing").style.display="none";
+  $("certwrap").classList.add("on");
 }
-function certText(){
-  return "PLATINUM INSURERS (DEMO)\nMotor Third-Party cover is active.\n"+
-    "Policy: "+state.policy_number+"\nHolder: "+state.name+"\nVehicle: "+state.vreg+
-    "\nPremium: LRD "+money(state.premium)+"\nValid: "+state.startS+" to "+state.endS+
-    (state.cert_url?("\nCertificate: "+state.cert_url):"")+
-    "\n\n(Demo — not real insurance cover.)";
-}
-function shareWhatsApp(){ window.open("https://wa.me/?text="+encodeURIComponent(certText()),"_blank"); }
-function sendSMS(){
-  const num=state.msisdn?("+"+state.msisdn):"";
-  window.location.href="sms:"+num+"?&body="+encodeURIComponent(certText());
-}
-function showErr(el,msg){ el.textContent=msg; el.classList.remove("hidden"); }
-function humanErr(e){
-  if(/momo rejected/i.test(e)) return "Mobile Money could not process this right now. Please try again.";
-  if(/phone/i.test(e)) return "That Mobile Money number doesn't look right.";
-  return "Something went wrong. Please try again.";
+function resetDemo(){
+  $("stage").classList.remove("on");
+  $("certwrap").classList.remove("on");
+  $("hero").style.display="flex";
 }
 </script>
 </body>
