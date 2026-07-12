@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Platinum Go — Motor cover in 90 seconds">
 <meta property="og:description" content="Instant motor insurance from Platinum Insurers Liberia. Quote, pay by Mobile Money, and get your certificate — in 90 seconds.">
-<meta property="og:image" content="https://hnsaad1973-tech.github.io/Ami/platinum-go/og-banner.png">
+<meta property="og:image" content="https://hnsaad1973-tech.github.io/platinum-go/og-banner.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Platinum Go — Motor cover in 90 seconds">
 <meta name="twitter:description" content="Instant motor insurance from Platinum Insurers Liberia.">
@@ -23,7 +23,7 @@
     --navy:#0B2A4A; --navy2:#071C33; --ink:#050F1D;
     --steel:#3E5C82; --steel-lite:#9FB2C6;
     --gold:#C9A24B; --gold-lite:#E4C877; --gold-dim:#A9843A;
-    --cream:#EDEAE2; --mute:#7E90A6; --green:#3FB27A; --line:rgba(159,178,198,.16);
+    --cream:#EDEAE2; --mute:#7E90A6; --green:#3FB27A; --red:#F0888C; --line:rgba(159,178,198,.16);
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
@@ -52,7 +52,7 @@
     box-shadow:0 0 0 3px rgba(63,178,122,.18)}
 
   .hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px 0 8px}
-  .emblem{width:128px;height:128px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));margin-bottom:8px;
+  .emblem{width:126px;height:126px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));margin-bottom:8px;
     animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
   .word{font-size:52px;font-weight:600;letter-spacing:-.01em;margin:2px 0 0;animation:rise .9s .06s cubic-bezier(.2,.7,.2,1) both}
   .word .dot{color:var(--gold)}
@@ -69,6 +69,7 @@
     box-shadow:0 12px 30px rgba(201,162,75,.28), inset 0 1px 0 rgba(255,255,255,.4);
     position:relative;overflow:hidden;transition:transform .08s}
   .btn:active{transform:translateY(1px)}
+  .btn[disabled]{opacity:.5;cursor:default}
   .btn .sheen{position:absolute;top:0;left:-60%;width:40%;height:100%;
     background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
     transform:skewX(-18deg);animation:sheen 3.2s ease-in-out infinite}
@@ -87,11 +88,44 @@
 
   @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
+  /* ---- FORM ---- */
+  .form{flex:1;display:none;flex-direction:column;justify-content:center;padding:8px 0}
+  .form.on{display:flex;animation:rise .5s both}
+  .form h2{font-family:Fraunces;font-weight:600;font-size:24px;text-align:center;margin:2px 0 4px}
+  .form .lede{text-align:center;color:var(--steel-lite);font-size:13px;margin:0 0 18px}
+  .fcard{border:1px solid var(--line);border-radius:18px;padding:20px 18px;
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01))}
+  .sect{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:2px 0 12px}
+  .sect.mt{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-size:12px;letter-spacing:.03em;color:var(--steel-lite);margin-bottom:6px;font-weight:600}
+  .field input,.field select{width:100%;padding:12px 13px;border-radius:11px;border:1px solid var(--line);
+    background:rgba(255,255,255,.04);color:var(--cream);font-family:Inter;font-size:15px;outline:none;transition:.15s}
+  .field input::placeholder{color:var(--mute)}
+  .field input:focus,.field select:focus{border-color:var(--gold);background:rgba(201,162,75,.06)}
+  .field select{appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239FB2C6' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 13px center}
+  .field .hint{font-size:11px;color:var(--mute);margin-top:5px}
+  .phone{display:flex;gap:8px}
+  .phone .cc{flex:none;width:66px;text-align:center;font-weight:700;color:var(--gold-lite)}
+  .phone input{flex:1}
+  .two{display:flex;gap:10px}
+  .two .field{flex:1}
+  .premrow{display:flex;align-items:center;justify-content:space-between;margin:16px 0 4px;
+    padding:14px 16px;border-radius:12px;background:rgba(201,162,75,.08);border:1px solid rgba(201,162,75,.24)}
+  .premrow .l{font-size:13px;color:var(--steel-lite)}
+  .premrow .v{font-family:Fraunces;font-weight:700;font-size:22px;color:var(--gold-lite)}
+  .chk{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-size:12.5px;color:var(--cream);line-height:1.5}
+  .chk input{flex:none;width:18px;height:18px;margin-top:1px;accent-color:var(--gold)}
+  .ferr{display:none;color:var(--red);font-size:13px;text-align:center;margin-top:14px}
+  .factions{display:flex;gap:10px;margin-top:16px}
+
+  /* ---- ISSUING ---- */
   .stage{flex:1;display:none;flex-direction:column;justify-content:center}
   .stage.on{display:flex}
   .panel{border:1px solid var(--line);border-radius:20px;padding:24px 22px;
-    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
-    backdrop-filter:blur(2px)}
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));backdrop-filter:blur(2px)}
   .panel .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);text-align:center}
   .panel h2{font-family:Fraunces;font-weight:600;font-size:24px;text-align:center;margin:8px 0 22px}
   .steps{display:flex;flex-direction:column;gap:2px}
@@ -105,10 +139,10 @@
   .stp .amt{margin-left:auto;font-family:Fraunces;font-weight:600;color:var(--gold-lite);font-size:16px;white-space:nowrap}
   @keyframes spin{to{transform:rotate(360deg)}}
 
+  /* ---- CERTIFICATE ---- */
   .certwrap{display:none}
   .certwrap.on{display:block;animation:rise .7s both}
-  .cert{border-radius:18px;overflow:hidden;position:relative;background:#fff;color:#0B2A4A;
-    box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .cert{border-radius:18px;overflow:hidden;position:relative;background:#fff;color:#0B2A4A;box-shadow:0 24px 60px rgba(0,0,0,.5)}
   .cert .wm{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
   .cert .wm span{font-family:Fraunces;font-size:66px;font-weight:700;color:rgba(201,162,75,.10);transform:rotate(-24deg);letter-spacing:.1em}
   .cert .ch{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#fff;padding:18px 20px;display:flex;align-items:center;gap:13px;position:relative;z-index:1}
@@ -138,8 +172,9 @@
   </div>
   <div class="sandbanner"><span class="d"></span> Sandbox demo — live payment rail, no charge</div>
 
+  <!-- HERO -->
   <div class="hero" id="hero">
-    <svg class="emblem" width="128" height="128" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Platinum Insurers">
+    <svg class="emblem" width="126" height="126" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Platinum Insurers">
       <path d="M60 6 L104 22 V58 C104 84 84 104 60 114 C36 104 16 84 16 58 V22 Z" fill="#0B2A4A" stroke="#C9A24B" stroke-width="3"/>
       <path d="M60 14 L96 27 V57 C96 79 80 96 60 105 C40 96 24 79 24 57 V27 Z" fill="none" stroke="#E4C877" stroke-width="1" opacity=".55"/>
       <text x="60" y="78" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="54" font-weight="700" fill="#E4C877">P</text>
@@ -150,7 +185,7 @@
     <p class="sub">Quote, pay with Mobile Money, and receive a verifiable certificate — without a branch, an agent, or paperwork.</p>
 
     <div class="cta">
-      <button class="btn" onclick="runDemo()"><span class="sheen"></span>See it work &nbsp;→</button>
+      <button class="btn" onclick="showForm()"><span class="sheen"></span>Get covered &nbsp;→</button>
     </div>
 
     <div class="proof">
@@ -160,19 +195,81 @@
     </div>
   </div>
 
+  <!-- PROPOSAL FORM -->
+  <div class="form" id="form">
+    <h2 class="serif">Motor insurance proposal</h2>
+    <p class="lede">Third-party liability · 12 months · Republic of Liberia</p>
+    <div class="fcard">
+      <div class="sect">Policyholder</div>
+      <div class="field">
+        <label for="fName">Full name (as on ID)</label>
+        <input id="fName" type="text" autocomplete="name" placeholder="e.g. Musu Kamara">
+      </div>
+      <div class="field">
+        <label for="fMsisdn">Mobile Money number</label>
+        <div class="phone">
+          <input class="cc" value="+231" readonly aria-label="Country code">
+          <input id="fMsisdn" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national" placeholder="77 000 0000">
+        </div>
+        <div class="hint">Use your own MTN number — the payment prompt is sent here.</div>
+      </div>
+      <div class="field">
+        <label for="fId">National ID number</label>
+        <input id="fId" type="text" placeholder="e.g. LR-123456">
+        <div class="hint">Held encrypted. Required under KYC / AML rules.</div>
+      </div>
+
+      <div class="sect mt">Vehicle</div>
+      <div class="field">
+        <label for="fReg">Registration (plate) number</label>
+        <input id="fReg" type="text" placeholder="e.g. MV-1648" style="text-transform:uppercase">
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="fMake">Make &amp; model</label>
+          <input id="fMake" type="text" placeholder="Kia Sportage">
+        </div>
+        <div class="field">
+          <label for="fClass">Use</label>
+          <select id="fClass">
+            <option value="private">Private</option>
+            <option value="commercial">Commercial</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="sect mt">Cover</div>
+      <div class="premrow">
+        <div class="l">Motor Third-Party Liability · 12 months</div>
+        <div class="v">LRD 15,000</div>
+      </div>
+      <label class="chk"><input id="fDecl" type="checkbox"> I declare the information above is true and complete.</label>
+      <label class="chk"><input id="fConsent" type="checkbox"> I consent to Platinum Insurers processing my data to issue this policy.</label>
+
+      <div class="ferr" id="ferr"></div>
+    </div>
+
+    <div class="factions">
+      <button class="btn btn-ghost" onclick="backToHero()">← Back</button>
+      <button class="btn" id="payBtn" onclick="submitForm()"><span class="sheen"></span>Pay LRD 15,000 &nbsp;→</button>
+    </div>
+  </div>
+
+  <!-- ISSUING -->
   <div class="stage" id="stage">
     <div class="panel" id="issuing">
       <div class="lbl">Live · issuing a policy</div>
       <h2 class="serif" id="issTitle">Watch it happen</h2>
       <div class="steps">
         <div class="stp" id="s1"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Calculating quote<small id="s1s">Rating the vehicle…</small></span><span class="amt" id="s1a"></span></div>
-        <div class="stp" id="s2"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Mobile Money payment<small id="s2s">Awaiting confirmation…</small></span><span class="amt" id="s2a"></span></div>
+        <div class="stp" id="s2"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Mobile Money payment<small id="s2s">Prompt sent to your phone…</small></span><span class="amt" id="s2a"></span></div>
         <div class="stp" id="s3"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Activating policy<small id="s3s">Assigning policy number…</small></span><span class="amt" id="s3a"></span></div>
         <div class="stp" id="s4"><span class="mk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#052012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="tx">Issuing certificate<small id="s4s">Generating document + QR…</small></span><span class="amt" id="s4a"></span></div>
       </div>
-      <div id="issErr" style="display:none;color:#F0888C;font-size:13px;text-align:center;margin-top:14px"></div>
+      <div id="issErr" style="display:none;color:var(--red);font-size:13px;text-align:center;margin-top:14px"></div>
     </div>
 
+    <!-- CERTIFICATE -->
     <div class="certwrap" id="certwrap">
       <div class="cert">
         <div class="wm"><span>PREVIEW</span></div>
@@ -199,8 +296,8 @@
         <div class="legal">Issued subject to policy terms and the Insurance Act of Liberia. No Premium No Cover applies. <b>Sandbox preview — not valid as real cover.</b></div>
       </div>
       <div class="again">
-        <button class="btn btn-ghost" onclick="resetDemo()">← Back</button>
-        <button class="btn" onclick="runDemo()"><span class="sheen"></span>Run again</button>
+        <button class="btn btn-ghost" onclick="resetToForm()">← New policy</button>
+        <button class="btn" onclick="backToHero()"><span class="sheen"></span>Done</button>
       </div>
     </div>
   </div>
@@ -212,17 +309,50 @@
 const BASE="https://kfhadcpnqvnqrhzrkaeq.supabase.co/functions/v1/pg";
 const PRICE_DISPLAY="LRD 15,000";
 const $=id=>document.getElementById(id);
-const NAMES=["James Kollie","Musu Kamara","Emmanuel Toe","Fatima Bah","Prince Weah","Grace Johnson","Amara Dukuly","Joseph Nyema"];
-const VEH=[["Toyota Corolla","MC"],["Nissan Patrol","BG"],["Honda CR-V","CH"],["Toyota Hilux","LR"],["Kia Sportage","MV"]];
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 function money(n){return Number(n).toLocaleString("en-US")}
-function rnd(a){return a[Math.floor(Math.random()*a.length)]}
 function premiumText(p){return (p!=null && !isNaN(Number(p))) ? "LRD "+money(p) : PRICE_DISPLAY}
-
 function setStep(id,st,sub){const e=$(id);e.classList.remove("run","done");e.classList.add("on");if(st)e.classList.add(st);if(sub!==undefined)$(id+"s").textContent=sub}
 
-async function runDemo(){
-  $("hero").style.display="none";
+/* ---- navigation ---- */
+function showForm(){$("hero").style.display="none";$("stage").classList.remove("on");$("form").classList.add("on");$("ferr").style.display="none";}
+function backToHero(){$("form").classList.remove("on");$("stage").classList.remove("on");$("certwrap").classList.remove("on");$("hero").style.display="flex";}
+function resetToForm(){
+  $("stage").classList.remove("on");$("certwrap").classList.remove("on");
+  ["fName","fMsisdn","fId","fReg","fMake"].forEach(k=>$(k).value="");
+  $("fClass").value="private";$("fDecl").checked=false;$("fConsent").checked=false;
+  showForm();
+}
+
+/* ---- validate + submit ---- */
+function submitForm(){
+  const name=$("fName").value.trim();
+  const local=$("fMsisdn").value.replace(/\D/g,"");
+  const idn=$("fId").value.trim();
+  const reg=$("fReg").value.trim().toUpperCase();
+  const make=$("fMake").value.trim();
+  const vclass=$("fClass").value;
+  const err=$("ferr");
+  const fail=m=>{err.textContent=m;err.style.display="block";};
+
+  if(!name){return fail("Enter the policyholder's full name.");}
+  if(local.length<7||local.length>9){return fail("Enter a valid MTN number after +231 (7–9 digits).");}
+  if(!idn){return fail("Enter the national ID number.");}
+  if(!reg){return fail("Enter the vehicle registration number.");}
+  if(!$("fDecl").checked||!$("fConsent").checked){return fail("Please confirm the declaration and consent.");}
+  err.style.display="none";
+
+  const payload={
+    product_code:"MOTOR_TPL", vehicle_class:vclass,
+    vehicle_reg:reg, full_name:name, msisdn:"231"+local, id_number:idn,
+    _make:make||"Vehicle"
+  };
+  issue(payload);
+}
+
+/* ---- issue against live pg backend ---- */
+async function issue(p){
+  $("form").classList.remove("on");
   $("stage").classList.add("on");
   $("certwrap").classList.remove("on");
   $("issuing").style.display="block";
@@ -230,23 +360,21 @@ async function runDemo(){
   ["s1","s2","s3","s4"].forEach(s=>{$(s).classList.remove("on","run","done");$(s+"a").textContent=""});
   $("issTitle").textContent="Watch it happen";
 
-  const name=rnd(NAMES), v=rnd(VEH), reg=v[1]+"-"+(1000+Math.floor(Math.random()*8999));
-  const demo={name,veh:v[0],reg};
-
+  const demo={name:p.full_name, veh:p._make, reg:p.vehicle_reg};
   try{
     setStep("s1","run","Rating the vehicle…"); await wait(650);
     const r=await fetch(BASE+"/initiate",{method:"POST",headers:{},
-      body:JSON.stringify({product_code:"MOTOR_TPL",vehicle_class:"private",
-        vehicle_reg:reg,full_name:name,msisdn:"231770000000",id_number:"LR-"+Math.floor(100000+Math.random()*899999)})});
+      body:JSON.stringify({product_code:p.product_code,vehicle_class:p.vehicle_class,
+        vehicle_reg:p.vehicle_reg,full_name:p.full_name,msisdn:p.msisdn,id_number:p.id_number})});
     const j=await r.json();
     if(j.error) throw new Error(j.error);
     demo.premium=j.premium; demo.ref=j.ref; demo.premiumDisp=premiumText(j.premium);
     $("s1a").textContent=demo.premiumDisp;
     setStep("s1","done","Premium calculated");
 
-    setStep("s2","run","Confirming on Mobile Money…"); await wait(900);
+    setStep("s2","run","Approve the prompt on your phone…"); await wait(700);
     let done=null,tries=0;
-    while(tries<20){
+    while(tries<40){
       tries++;
       const s=await fetch(BASE+"/status?ref="+demo.ref).then(x=>x.json());
       const st=String(s.status||"").toLowerCase();
@@ -269,7 +397,9 @@ async function runDemo(){
   }catch(e){
     console.error("[Platinum Go]",e);
     $("issErr").style.display="block";
-    $("issErr").textContent="Live service hiccup — tap Run again.";
+    $("issErr").textContent = (String(e.message).includes("payment")||String(e.message).includes("timed"))
+      ? "Payment not completed — go back and try again."
+      : "Live service hiccup — go back and try again.";
   }
 }
 
@@ -285,11 +415,6 @@ function showCert(d){
   try{new QRCode($("qr"),{text:d.cert||d.policy,width:66,height:66,colorDark:"#0B2A4A",colorLight:"#ffffff"})}catch(e){}
   $("issuing").style.display="none";
   $("certwrap").classList.add("on");
-}
-function resetDemo(){
-  $("stage").classList.remove("on");
-  $("certwrap").classList.remove("on");
-  $("hero").style.display="flex";
 }
 </script>
 </body>
