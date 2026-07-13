@@ -106,10 +106,12 @@ function row(k,v){return '<div class="row"><span class="k">'+k+'</span><span cla
 async function run(){
   $("retry").style.display="none";$("rows").style.display="none";$("stamp").style.display="none";
   setState("load","Verifying…","Checking this certificate against the live register.");
-  const p=qp("p");
-  if(!p){setState("bad","No reference","This link has no policy reference to check.");return;}
+  const policy=qp("policy")||qp("p");
+  const token=qp("token");
+  if(!policy){setState("bad","No reference","This link has no policy reference to check.");return;}
   try{
-    const r=await fetch(BASE+"/verify?p="+encodeURIComponent(p),{method:"GET",headers:{}});
+    const url=BASE+"/verify?policy="+encodeURIComponent(policy)+(token?"&token="+encodeURIComponent(token):"");
+    const r=await fetch(url,{method:"GET",headers:{}});
     const d=await r.json();
     if(d.error) throw new Error(d.error);
     if(!d.found){
