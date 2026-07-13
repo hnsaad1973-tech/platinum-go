@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certificate of Motor Insurance — Platinum Insurers</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{font-family:Arial,Helvetica,sans-serif;color:#1f2733;margin:0;background:#eef2f6}
+  .load{max-width:720px;margin:60px auto;text-align:center;color:#5a6b7b;font-size:14px}
+  .cert{max-width:720px;margin:20px auto;background:#fff;border:1px solid #cdd6df;border-radius:8px;overflow:hidden;display:none}
+  .hd{background:#0b2a4a;color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+  .hd .b{font-size:20px;font-weight:700} .hd .s{font-size:11px;opacity:.85}
+  .valid{background:#1e7d3a;color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px}
+  .invalid{background:#a5313a}
+  .body{padding:22px 24px} h1{font-size:15px;color:#0b2a4a;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:13px} td{padding:6px 4px;border-bottom:1px solid #eef2f6}
+  td.k{color:#5a6b7b;width:42%} td.v{font-weight:600;color:#12467a}
+  .ft{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-top:1px solid #eef2f6}
+  .qr{text-align:center} .qr .c{font-size:10px;color:#5a6b7b;margin-top:6px}
+  .np{font-size:10px;color:#8a97a5;padding:0 24px 18px}
+  .terms{padding:4px 24px 20px;border-top:1px solid #eef2f6}
+  .terms h2{font-size:12px;color:#0b2a4a;margin:16px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+  .terms h3{font-size:12px;color:#12467a;margin:12px 0 4px}
+  .terms p,.terms li{font-size:11px;line-height:1.5;color:#3a4756;margin:4px 0}
+  .terms ol{margin:4px 0 4px 0;padding-left:18px} .terms .intro{color:#5a6b7b}
+  .bar{max-width:720px;margin:0 auto 24px;display:flex;gap:10px;justify-content:flex-end}
+  .bar button{padding:10px 18px;border:1px solid #cdd6df;border-radius:8px;background:#fff;color:#12467a;font-weight:600;font-size:13px;cursor:pointer}
+  .err{max-width:720px;margin:60px auto;text-align:center;color:#a5313a;font-size:14px;display:none}
+  @media print{body{background:#fff}.cert{border:none;margin:0}.bar{display:none}.terms{page-break-inside:auto}}
+</style>
+</head>
+<body>
+  <div class="load" id="load">Loading certificate…</div>
+  <div class="err" id="err">Certificate not found.</div>
+
+  <div class="cert" id="cert">
+    <div class="hd">
+      <div><div class="b">PLATINUM INSURERS</div>
+      <div class="s">Liberia Inc. — Certificate of Motor Insurance</div></div>
+      <div class="valid" id="badge">VALID</div>
+    </div>
+    <div class="body">
+      <h1 id="kind">Motor Third-Party Liability</h1>
+      <table>
+        <tr><td class="k">Policy Number</td><td class="v" id="cNum">—</td></tr>
+        <tr><td class="k">Policyholder</td><td class="v" id="cName">—</td></tr>
+        <tr><td class="k">Vehicle Registration</td><td class="v" id="cReg">—</td></tr>
+        <tr><td class="k">Vehicle Class</td><td class="v" id="cClass">—</td></tr>
+        <tr><td class="k">Premium Paid</td><td class="v" id="cPrem">—</td></tr>
+        <tr><td class="k">Period of Cover</td><td class="v" id="cDates">—</td></tr>
+      </table>
+    </div>
+    <div class="ft">
+      <div style="font-size:11px;color:#5a6b7b">Scan to verify authenticity at any time.</div>
+      <div class="qr"><div id="qr"></div><div class="c">Verify</div></div>
+    </div>
+    <div class="np">This certificate is issued subject to the policy terms and the Insurance Act of Liberia.
+    No Premium No Cover applies. Platinum Insurers Liberia Inc.</div>
+    <div class="terms">
+      <h2>Policy Wording — Motor Third-Party Liability</h2>
+      <p class="intro">In consideration of the premium having been paid, and subject to No Premium No Cover under the Insurance Act of Liberia, Platinum Insurers Liberia Inc. ("the Company") will indemnify the Policyholder named above against the liabilities set out below, arising from use of the Insured Vehicle within the Republic of Liberia during the Period of Cover shown, subject to the terms, exclusions, limits and conditions of this Policy.</p>
+      <h3>Section A — Third-Party Liability</h3>
+      <p>The Company will indemnify the Insured against sums the Insured becomes legally liable to pay in respect of an accident caused by or arising out of the use of the Insured Vehicle within Liberia:</p>
+      <ol>
+        <li><b>Death or bodily injury</b> to any Third Party, up to the limit shown in the Schedule or, where none is shown, the statutory minimum required under the Act.</li>
+        <li><b>Damage to Third-Party property</b>, up to the property-damage limit in the Schedule.</li>
+        <li><b>Legal costs</b> incurred with the Company's written consent in defending a covered claim.</li>
+      </ol>
+      <p>Third-Party liability is the minimum lawful cover for a vehicle used on Liberian roads. This certificate does not provide cover for loss of or damage to the Insured Vehicle.</p>
+      <h3>General Exclusions</h3>
+      <p>The Company shall not be liable for any accident, loss, damage or liability occurring: while the vehicle is driven by a person not holding a valid Liberian licence for that class, or who is disqualified; while used for a purpose not permitted by the Schedule; while the driver is under the influence of alcohol or drugs; outside the Republic of Liberia (unless extended by endorsement); arising from war, invasion, civil war, rebellion or requisition; arising from ionising radiation or nuclear contamination; from liability assumed by agreement that would not otherwise attach; or while carrying a load or number of passengers exceeding that for which the vehicle was constructed or licensed. Consequential loss, depreciation, wear and tear and mechanical or electrical breakdown are excluded.</p>
+      <h3>General Conditions</h3>
+      <ol>
+        <li><b>No Premium No Cover.</b> Cover does not attach and no liability arises unless the premium has been paid in full; the Mobile Money reference evidences payment.</li>
+        <li><b>Good faith.</b> The Insured must disclose all material facts. Misrepresentation, non-disclosure or fraud renders this Policy void and premiums may be forfeited.</li>
+        <li><b>Notification.</b> Any accident or claim must be notified to the Company within seven (7) days, with full particulars, and any writ or summons forwarded immediately. The Insured must not admit liability or make any payment without the Company's written consent.</li>
+        <li><b>Claims conduct.</b> The Company may take over and conduct the defence or settlement of any claim in the Insured's name.</li>
+        <li><b>Cancellation.</b> The Company may cancel by seven (7) days' notice with a pro-rata refund; the Insured may cancel on the Company's short-period scale.</li>
+        <li><b>Contribution.</b> Where a loss is also covered elsewhere, the Company is liable only for its rateable proportion.</li>
+        <li><b>Arbitration &amp; law.</b> Disputes as to amount (liability admitted) are referred to arbitration under Liberian law. This Policy is governed by the laws of the Republic of Liberia and the Insurance Act.</li>
+        <li><b>Fraud.</b> If any claim is fraudulent or exaggerated, all benefit under this Policy is forfeited.</li>
+      </ol>
+      <p class="intro">Issued subject to the terms above and the Insurance Act of the Republic of Liberia. No Premium No Cover applies. Platinum Insurers Liberia Inc.</p>
+    </div>
+  </div>
+
+  <div class="bar" id="bar" style="display:none">
+    <button onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+<script>
+const BASE="https://kfhadcpnqvnqrhzrkaeq.supabase.co/functions/v1/pg";
+const VERIFY="https://hnsaad1973-tech.github.io/platinum-go/verify.html";
+const $=id=>document.getElementById(id);
+function qp(k){return new URLSearchParams(location.search).get(k)}
+function fmt(d){try{return new Date(d).toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})}catch(e){return d||"—"}}
+function money(n){return (n==null||isNaN(Number(n)))?"—":"LRD "+Number(n).toLocaleString("en-US")}
+
+(async function(){
+  const token=qp("token"), policy=qp("policy");
+  if(!token && !policy){$("load").style.display="none";$("err").style.display="block";return;}
+  try{
+    const url=BASE+"/cert?"+(token?("token="+encodeURIComponent(token)):("policy="+encodeURIComponent(policy)));
+    const r=await fetch(url,{method:"GET",headers:{}});
+    const d=await r.json();
+    if(!d||!d.found){$("load").style.display="none";$("err").style.display="block";return;}
+
+    $("kind").textContent=d.product;
+    $("cNum").textContent=d.policy_number;
+    $("cName").textContent=d.full_name||"—";
+    $("cReg").textContent=d.vehicle_reg||"—";
+    $("cClass").textContent=d.vehicle_class||"—";
+    $("cPrem").textContent=money(d.premium);
+    $("cDates").textContent=fmt(d.start_date)+" to "+fmt(d.end_date);
+
+    const badge=$("badge");
+    if(d.valid){badge.textContent="VALID";}
+    else{badge.textContent="NOT ACTIVE";badge.classList.add("invalid");}
+
+    const vUrl=VERIFY+"?policy="+encodeURIComponent(d.policy_number)+(d.qr_token?"&token="+encodeURIComponent(d.qr_token):"");
+    try{new QRCode($("qr"),{text:vUrl,width:96,height:96,colorDark:"#0b2a4a",colorLight:"#ffffff"});}catch(e){}
+
+    $("load").style.display="none";
+    $("cert").style.display="block";
+    $("bar").style.display="flex";
+    document.title=d.policy_number+" — Platinum Insurers";
+  }catch(e){
+    console.error("[cert]",e);
+    $("load").style.display="none";
+    $("err").style.display="block";
+  }
+})();
+</script>
+</body>
+</html>
