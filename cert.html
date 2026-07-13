@@ -47,9 +47,12 @@
         <tr><td class="k">Policy Number</td><td class="v" id="cNum">—</td></tr>
         <tr><td class="k">Policyholder</td><td class="v" id="cName">—</td></tr>
         <tr><td class="k">Vehicle Registration</td><td class="v" id="cReg">—</td></tr>
-        <tr><td class="k">Vehicle Class</td><td class="v" id="cClass">—</td></tr>
-        <tr><td class="k">Premium Paid</td><td class="v" id="cPrem">—</td></tr>
-        <tr><td class="k">Period of Cover</td><td class="v" id="cDates">—</td></tr>
+        <tr><td class="k">Category</td><td class="v" id="cCat">—</td></tr>
+        <tr><td class="k">Vehicle Type</td><td class="v" id="cBand">—</td></tr>
+        <tr><td class="k">Premium</td><td class="v" id="cPrice">—</td></tr>
+        <tr><td class="k">Sticker &amp; Brown Card</td><td class="v" id="cFee">—</td></tr>
+        <tr><td class="k">Total Paid</td><td class="v" id="cPrem">—</td></tr>
+        <tr><td class="k">Cover Period</td><td class="v" id="cDates">—</td></tr>
       </table>
     </div>
     <div class="ft">
@@ -96,7 +99,7 @@ const VERIFY="https://hnsaad1973-tech.github.io/platinum-go/verify.html";
 const $=id=>document.getElementById(id);
 function qp(k){return new URLSearchParams(location.search).get(k)}
 function fmt(d){try{return new Date(d).toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})}catch(e){return d||"—"}}
-function money(n){return (n==null||isNaN(Number(n)))?"—":"LRD "+Number(n).toLocaleString("en-US")}
+function money(n){return (n==null||isNaN(Number(n)))?"—":"USD "+Number(n).toLocaleString("en-US")}
 
 (async function(){
   const token=qp("token"), policy=qp("policy");
@@ -111,9 +114,12 @@ function money(n){return (n==null||isNaN(Number(n)))?"—":"LRD "+Number(n).toLo
     $("cNum").textContent=d.policy_number;
     $("cName").textContent=d.full_name||"—";
     $("cReg").textContent=d.vehicle_reg||"—";
-    $("cClass").textContent=d.vehicle_class||"—";
+    $("cCat").textContent=d.category||d.vehicle_class||"—";
+    $("cBand").textContent=d.band||"—";
+    $("cPrice").textContent=money(d.base_price);
+    $("cFee").textContent=money(d.fee);
     $("cPrem").textContent=money(d.premium);
-    $("cDates").textContent=fmt(d.start_date)+" to "+fmt(d.end_date);
+    $("cDates").textContent=fmt(d.start_date)+" to "+fmt(d.end_date)+(d.term?"  ("+d.term+")":"");
 
     const badge=$("badge");
     if(d.valid){badge.textContent="VALID";}
